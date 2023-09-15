@@ -1,0 +1,274 @@
+---
+title: "Publish Quarto presentation to Sharepoint"
+author: "Pablo-Leon"
+date: "`r Sys.Date()`"
+format: 
+  html: 
+    toc: true
+    html-math-method: katex
+    code-fold: true
+    editor: source
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
+                      dpi = 180, fig.width = 8, fig.height = 5)
+library(tidyverse) 
+```
+
+
+## Sharing content   
+
+This blog post explains the process of publishing interactive quarto rendered presentations (reveal js files) to a Sharepoint space.
+
+
+## Steps
+
+1. Create first a `space` in in `SharePoint` to share my Quarto presentations called `Interactive Reports`
+2. Start by creating a project and Quarto document in R Studio
+3. Populate your Quarto file
+4. Render your Quarto document
+5. Rename rendered .html file as .aspx
+6. Drag this new .aspx onto your OneDrive ( OneDrive NHS England)
+7. Now go back to the  Sharepoint space created earlier `Interactive Reports`
+8. Then launch the Nine dots matrix icon in the top left corner of your screen 
+9.  Open `My files` menu from the left 
+10. Copy the file from this location in `My files` to the specific `Interactive Reports` area created earlier
+10.1 Follow the steps related to selecting `Copy to` option from previous drop down menu
+11. Go back to the main menu of the Quarto presentations space 
+11.1 Click on the three dots menu next to the `All Document` menu then select `Pin to Quick Access`
+12. Click again on the Sharepoint main menu and select One Drive
+12. 1 Then select within OneDrive the `My Files` icon 
+13. Final Step. Copy the entire Folder with the suffix `_files` created when rendering your quarto document into Quarto presentations  Documents folder.
+14. Open your **Interactive** presentation from your Quarto presentations area
+15. Share presentation with other colleagues
+
+
+## 1. Create new space in SharePoint
+
+The first step is to create a new site in Sharepoint to host our Quarto reports. Later on we will use this site to collaborate with other team members.
+
+Open SharePoint and navigate to the top left corner. Click on the Create site plus menu.
+
+![](Figures/00_01_ new_sharepoint_sire.png)
+
+
+We give it a name and now we have our new **Interactive reports** site up and running.
+
+![](Figures/00_02_new Site.png)
+
+## 2. Creating a project and Quarto document
+
+Proceed to create a new R project and a Quarto document, it will be saved as a .qmd file
+
+![](Figures/01_R_project.png)
+
+## 3. Create a new Quarto Reveal JS presentation
+
+Using reveal js we will build and share and interactive presentation with navigation features to share with other team members.We start in RStudio creating a new Quarto presentation.
+
+![](Figures/02_Create_quarto_revealjs_document.png)
+
+This is the YAML section of the presentation with the different topics covered in the slides
+
+![](Figures/03_Create_quarto_revealjs.png)
+
+
+## 4. Populate your Quarto Reveal JS presentation
+
+Write the content of your Quarto report. It is advised also to include an adhoc folder for Figures on the same project
+
+![](Figures/04_populate_reveal_JS_presentation.png)
+
+Define rendering properties of your Quarto in the top YAML section
+
+We want to include author details and also system date. We use slide number to display page number of current slid and also use the logo parameter to include .png images from a images folder
+
+![](Figures/05_yaml_reveal_JS_options.png)
+
+
+## 4. Render your Quarto Reveal JS presentation
+
+Once you have created your report, render it as you would normally do. You will obtain two files an '.html' and a '.qmd' file. And also the folder containing rendering outputs
+
+Original QMD file and interactive HTML file
+
+04_HTML_QMD_quarto_output.PNG
+
+![](Figures/06_Quarto_presentation_output.png)
+
+
+As this is Quarto presentation using reveal js, two files will be created, one for the standard markdown files and another for the Reveal js files
+
+![](Figures/07_quarto_presentation_rendered_files.png)
+
+![](Figures/08_quarto_presentation_reveal_files.png)
+
+## 5. Rename rendered .html file as .aspx
+
+This first step of transforming the original .html file created by Quarto presentation into an interactive presentation involves changing the file extension. Right click on the .html file go to properties menu and on the General tab, change the .html file extension by .aspx 
+
+You will see how the file change its icon after that
+
+![](Figures/09_change_html_to_reveal.png)
+After we change it, its icon also changes 
+
+![](Figures/10_change_html_to_reveal.png)
+
+## 6. Drag this new .aspx onto your OneDrive ( OneDrive NHS England)
+
+A message will display on the screen letting you know the "Publish_Quarto_in_sharepoint_test.aspx" file is being copied over NHS England One Drive
+
+![](Figures/11_move_reveal_js_to_one_drive.png)
+
+
+## 7. Now go back to the  Sharepoint space created earlier `Interactive Reports`
+
+Click on Sharepoing icon on your browser and select the "Interactive Reports" space created earlier.
+
+![](Figures/12_Interactive_reports_sharepoint.png)
+
+## 8. Then launch the Nine dots matrix icon in the top left corner of your screen 
+
+Then you need to find the "One Drive" section on the dots matrix menu top left side corner of your screen
+
+![](Figures/13_Nine_dots_matrix_topleft_corner.png)
+And from there select "OneDrive" from the top icons row. 
+
+![](Figures/14_OneDrive_Open_in_new_tab.png)
+
+"Open in new tab" and it will open the screen below in a new tab
+
+Then on the left side of this new window, you must locate the "My files" icon
+
+![](Figures/15_OneDrive_Open_myfiles.png)
+
+From this new window you have just opened, you will have to find .aspx file called  "Publish_Quarto_in_sharepoint_test.aspx" you just created. 
+
+## 9.  Open `My files` menu from the left 
+
+One trick to find easier your .aspx file is to navigate to the top drop down menus on this new "My files" tab and search for the "Modified by" header. Then click on the down arrow menu and select "Newer to older" this will make you .aspx file to be display right after all the folders. 
+
+![](Figures/16_Newer_to_older.png)
+
+Then you will be able to see the .aspx file in your Myfiles folder:
+
+![](Figures/17_My_aspx_file.png)
+
+## 10. Copy the file from this location in `My files` to the specific `Interactive reports` area created earlier 
+
+Click on the three dots menu on the right dide of the .aspx document we want to copy across to the Interactive reports area
+
+![](Figures/18_copy_to_interactive_reports.png)
+
+![](Figures/19_copy_to_interactive_reports_menu02.png)
+
+Select Interactive reports area from the left side menu:
+
+![](Figures/19_copy_to_interactive_reports_menu.png)
+
+Click on the "copy here" button  
+
+Now the .aspx file is being copied to the Documents section of the Interactive Reports site
+
+
+![](Figures/20_copy_here.png)
+
+Finally we can see the file in the destination folder
+
+![](Figures/21_aspx_file_in_interactive_reports.png)
+
+
+
+
+## 11. Go back to the main menu of the Interactive Reports site 
+
+In the top bar menu you will see  the `Pin to Quick access` button. Click on it to pin the Interactive Reports to the Quick Access left navigation menu
+
+![](Figures/22_Pin_to_quick_access.png)
+
+Now the Interactive Reports site has been pinned to the quick access area
+
+![](Figures/23_Pinned_to_quick_access.png)
+
+
+## 12. Click again on the Sharepoint main menu and select One Drive
+
+Then go back to the main OneDrive Menu and click on the dot matrix in the top left corner
+
+![](Figures/24_Click_one_drive_menu.png)
+Find the One Drive Icon under the Apps menu
+
+![](Figures/25_One_drive_menu.png)
+
+After clicking on the OneDrive icon, find My Files icon
+
+![](Figures/26_My_files_icon.png)
+
+In this "My files" folder, locate your .aspx file, the one we created earlier called file  and select it. 
+
+
+![](Figures/27_Select_File_from_my_files.png)
+
+
+This will make a new menu to appear at the top of the bar with new options Select copy to from the drop down menu you will se displayed by clicking on the three dots.
+
+![](Figures/28_copy_to_new_area.png)
+Then This new window opens: 
+
+![](Figures/29_copy_to_Interactive_reports_area.png) 
+
+Select the Interactive reports area and click on "Copy here" button.
+
+Then if we navigate to the Interactive Reports site we will see the .aspx document there. 
+
+![](Figures/30_apsx_presentation_in_interactive_reports.png) 
+
+
+## 13. Final Step. Copy the entire Folder with the suffix `_files` created when rendering your quarto document into Quarto presentations  Documents folder.
+
+In this particular example, as this is a reveal js presentation, is adviced to copy both the reveal and markdown rendered folders
+
+From your project folder where you created and rendered your initial document, find the folder containing rendering files from the Quarto document. It has the same name as your original .qmd file with a "_files" preffix.
+
+
+![](Figures/31_Copy_output_rendered_files_across.png)
+
+
+
+13_03_Drag_rendered_files_to_documents_section.png
+
+![](Figures/32_Drag_rendered_files_to_documents_section.png)
+![](Figures/33_Dragged_rendered_files.png)
+
+
+## 14. Open your **Interactive** presentation from your Quarto presentations area
+
+Once we have the Quarto document in your Area you can open it on your browser
+
+![](Figures/33_Dragged_rendered_files.png)
+
+
+Select "Preview" from the menu 
+
+It displays the presentation from your browser inside Sharpoint
+
+This also applies to Quarto presentations using **revealjs** this enables a whole range of interactive and navigation features for your presentation.
+
+
+![](Figures/34_Download_presentation.png)
+![](Figures/35_Presentaiton_fully_interactive.png)
+
+![](Figures/36_presentation_is_displayed_now.jpg)
+
+
+
+## 15. Share presentation with other colleagues
+
+We can share the recently published interactive presentation with colleagues. Click on the top right corner members icon:
+
+![](Figures/37_Share_presentation_01.png)
+
+From this menu you would be able to add new team member to access this file. They will be able to display interactively from their browser
+
+![](Quarto_docs_figures_presentation/15_02_share_presentation_with_colleagues.png)
