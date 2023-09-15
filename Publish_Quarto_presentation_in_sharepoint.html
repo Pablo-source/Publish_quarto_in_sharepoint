@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Pablo-Leon">
+<meta name="dcterms.date" content="2023-08-22">
+
+<title>Publish Quarto presentation to Sharepoint</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/quarto.js"></script>
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/popper.min.js"></script>
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Publish_Quarto_presentation_in_sharepoint_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Publish_Quarto_presentation_in_sharepoint_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Publish_Quarto_presentation_in_sharepoint_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Publish_Quarto_presentation_in_sharepoint_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sharing-content" id="toc-sharing-content" class="nav-link active" data-scroll-target="#sharing-content">Sharing content</a></li>
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#create-new-space-in-sharepoint" id="toc-create-new-space-in-sharepoint" class="nav-link" data-scroll-target="#create-new-space-in-sharepoint">1. Create new space in SharePoint</a></li>
+  <li><a href="#creating-a-project-and-quarto-document" id="toc-creating-a-project-and-quarto-document" class="nav-link" data-scroll-target="#creating-a-project-and-quarto-document">2. Creating a project and Quarto document</a></li>
+  <li><a href="#create-a-new-quarto-reveal-js-presentation" id="toc-create-a-new-quarto-reveal-js-presentation" class="nav-link" data-scroll-target="#create-a-new-quarto-reveal-js-presentation">3. Create a new Quarto Reveal JS presentation</a></li>
+  <li><a href="#populate-your-quarto-reveal-js-presentation" id="toc-populate-your-quarto-reveal-js-presentation" class="nav-link" data-scroll-target="#populate-your-quarto-reveal-js-presentation">4. Populate your Quarto Reveal JS presentation</a></li>
+  <li><a href="#render-your-quarto-reveal-js-presentation" id="toc-render-your-quarto-reveal-js-presentation" class="nav-link" data-scroll-target="#render-your-quarto-reveal-js-presentation">4. Render your Quarto Reveal JS presentation</a></li>
+  <li><a href="#rename-rendered-.html-file-as-.aspx" id="toc-rename-rendered-.html-file-as-.aspx" class="nav-link" data-scroll-target="#rename-rendered-.html-file-as-.aspx">5. Rename rendered .html file as .aspx</a></li>
+  <li><a href="#drag-this-new-.aspx-onto-your-onedrive-onedrive-nhs-england" id="toc-drag-this-new-.aspx-onto-your-onedrive-onedrive-nhs-england" class="nav-link" data-scroll-target="#drag-this-new-.aspx-onto-your-onedrive-onedrive-nhs-england">6. Drag this new .aspx onto your OneDrive ( OneDrive NHS England)</a></li>
+  <li><a href="#now-go-back-to-the-sharepoint-space-created-earlier-interactive-reports" id="toc-now-go-back-to-the-sharepoint-space-created-earlier-interactive-reports" class="nav-link" data-scroll-target="#now-go-back-to-the-sharepoint-space-created-earlier-interactive-reports">7. Now go back to the Sharepoint space created earlier <code>Interactive Reports</code></a></li>
+  <li><a href="#then-launch-the-nine-dots-matrix-icon-in-the-top-left-corner-of-your-screen" id="toc-then-launch-the-nine-dots-matrix-icon-in-the-top-left-corner-of-your-screen" class="nav-link" data-scroll-target="#then-launch-the-nine-dots-matrix-icon-in-the-top-left-corner-of-your-screen">8. Then launch the Nine dots matrix icon in the top left corner of your screen</a></li>
+  <li><a href="#open-my-files-menu-from-the-left" id="toc-open-my-files-menu-from-the-left" class="nav-link" data-scroll-target="#open-my-files-menu-from-the-left">9. Open <code>My files</code> menu from the left</a></li>
+  <li><a href="#copy-the-file-from-this-location-in-my-files-to-the-specific-interactive-reports-area-created-earlier" id="toc-copy-the-file-from-this-location-in-my-files-to-the-specific-interactive-reports-area-created-earlier" class="nav-link" data-scroll-target="#copy-the-file-from-this-location-in-my-files-to-the-specific-interactive-reports-area-created-earlier">10. Copy the file from this location in <code>My files</code> to the specific <code>Interactive reports</code> area created earlier</a></li>
+  <li><a href="#go-back-to-the-main-menu-of-the-interactive-reports-site" id="toc-go-back-to-the-main-menu-of-the-interactive-reports-site" class="nav-link" data-scroll-target="#go-back-to-the-main-menu-of-the-interactive-reports-site">11. Go back to the main menu of the Interactive Reports site</a></li>
+  <li><a href="#click-again-on-the-sharepoint-main-menu-and-select-one-drive" id="toc-click-again-on-the-sharepoint-main-menu-and-select-one-drive" class="nav-link" data-scroll-target="#click-again-on-the-sharepoint-main-menu-and-select-one-drive">12. Click again on the Sharepoint main menu and select One Drive</a></li>
+  <li><a href="#final-step.-copy-the-entire-folder-with-the-suffix-_files-created-when-rendering-your-quarto-document-into-quarto-presentations-documents-folder." id="toc-final-step.-copy-the-entire-folder-with-the-suffix-_files-created-when-rendering-your-quarto-document-into-quarto-presentations-documents-folder." class="nav-link" data-scroll-target="#final-step.-copy-the-entire-folder-with-the-suffix-_files-created-when-rendering-your-quarto-document-into-quarto-presentations-documents-folder.">13. Final Step. Copy the entire Folder with the suffix <code>_files</code> created when rendering your quarto document into Quarto presentations Documents folder.</a></li>
+  <li><a href="#open-your-interactive-presentation-from-your-quarto-presentations-area" id="toc-open-your-interactive-presentation-from-your-quarto-presentations-area" class="nav-link" data-scroll-target="#open-your-interactive-presentation-from-your-quarto-presentations-area">14. Open your <strong>Interactive</strong> presentation from your Quarto presentations area</a></li>
+  <li><a href="#share-presentation-with-other-colleagues" id="toc-share-presentation-with-other-colleagues" class="nav-link" data-scroll-target="#share-presentation-with-other-colleagues">15. Share presentation with other colleagues</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Publish Quarto presentation to Sharepoint</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Pablo-Leon </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 22, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="sharing-content" class="level2">
+<h2 class="anchored" data-anchor-id="sharing-content">Sharing content</h2>
+<p>This blog post explains the process of publishing interactive quarto rendered presentations (reveal js files) to a Sharepoint space.</p>
+</section>
+<section id="steps" class="level2">
+<h2 class="anchored" data-anchor-id="steps">Steps</h2>
+<ol type="1">
+<li>Create first a <code>space</code> in in <code>SharePoint</code> to share my Quarto presentations called <code>Interactive Reports</code></li>
+<li>Start by creating a project and Quarto document in R Studio</li>
+<li>Populate your Quarto file</li>
+<li>Render your Quarto document</li>
+<li>Rename rendered .html file as .aspx</li>
+<li>Drag this new .aspx onto your OneDrive ( OneDrive NHS England)</li>
+<li>Now go back to the Sharepoint space created earlier <code>Interactive Reports</code></li>
+<li>Then launch the Nine dots matrix icon in the top left corner of your screen</li>
+<li>Open <code>My files</code> menu from the left</li>
+<li>Copy the file from this location in <code>My files</code> to the specific <code>Interactive Reports</code> area created earlier 10.1 Follow the steps related to selecting <code>Copy to</code> option from previous drop down menu</li>
+<li>Go back to the main menu of the Quarto presentations space 11.1 Click on the three dots menu next to the <code>All Document</code> menu then select <code>Pin to Quick Access</code></li>
+<li>Click again on the Sharepoint main menu and select One Drive</li>
+<li>1 Then select within OneDrive the <code>My Files</code> icon</li>
+<li>Final Step. Copy the entire Folder with the suffix <code>_files</code> created when rendering your quarto document into Quarto presentations Documents folder.</li>
+<li>Open your <strong>Interactive</strong> presentation from your Quarto presentations area</li>
+<li>Share presentation with other colleagues</li>
+</ol>
+</section>
+<section id="create-new-space-in-sharepoint" class="level2">
+<h2 class="anchored" data-anchor-id="create-new-space-in-sharepoint">1. Create new space in SharePoint</h2>
+<p>The first step is to create a new site in Sharepoint to host our Quarto reports. Later on we will use this site to collaborate with other team members.</p>
+<p>Open SharePoint and navigate to the top left corner. Click on the Create site plus menu.</p>
+<p><img src="Figures/00_01_%20new_sharepoint_sire.png" class="img-fluid"></p>
+<p>We give it a name and now we have our new <strong>Interactive reports</strong> site up and running.</p>
+<p><img src="Figures/00_02_new%20Site.png" class="img-fluid"></p>
+</section>
+<section id="creating-a-project-and-quarto-document" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-project-and-quarto-document">2. Creating a project and Quarto document</h2>
+<p>Proceed to create a new R project and a Quarto document, it will be saved as a .qmd file</p>
+<p><img src="Figures/01_R_project.png" class="img-fluid"></p>
+</section>
+<section id="create-a-new-quarto-reveal-js-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-new-quarto-reveal-js-presentation">3. Create a new Quarto Reveal JS presentation</h2>
+<p>Using reveal js we will build and share and interactive presentation with navigation features to share with other team members.We start in RStudio creating a new Quarto presentation.</p>
+<p><img src="Figures/02_Create_quarto_revealjs_document.png" class="img-fluid"></p>
+<p>This is the YAML section of the presentation with the different topics covered in the slides</p>
+<p><img src="Figures/03_Create_quarto_revealjs.png" class="img-fluid"></p>
+</section>
+<section id="populate-your-quarto-reveal-js-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="populate-your-quarto-reveal-js-presentation">4. Populate your Quarto Reveal JS presentation</h2>
+<p>Write the content of your Quarto report. It is advised also to include an adhoc folder for Figures on the same project</p>
+<p><img src="Figures/04_populate_reveal_JS_presentation.png" class="img-fluid"></p>
+<p>Define rendering properties of your Quarto in the top YAML section</p>
+<p>We want to include author details and also system date. We use slide number to display page number of current slid and also use the logo parameter to include .png images from a images folder</p>
+<p><img src="Figures/05_yaml_reveal_JS_options.png" class="img-fluid"></p>
+</section>
+<section id="render-your-quarto-reveal-js-presentation" class="level2">
+<h2 class="anchored" data-anchor-id="render-your-quarto-reveal-js-presentation">4. Render your Quarto Reveal JS presentation</h2>
+<p>Once you have created your report, render it as you would normally do. You will obtain two files an ‘.html’ and a ‘.qmd’ file. And also the folder containing rendering outputs</p>
+<p>Original QMD file and interactive HTML file</p>
+<p>04_HTML_QMD_quarto_output.PNG</p>
+<p><img src="Figures/06_Quarto_presentation_output.png" class="img-fluid"></p>
+<p>As this is Quarto presentation using reveal js, two files will be created, one for the standard markdown files and another for the Reveal js files</p>
+<p><img src="Figures/07_quarto_presentation_rendered_files.png" class="img-fluid"></p>
+<p><img src="Figures/08_quarto_presentation_reveal_files.png" class="img-fluid"></p>
+</section>
+<section id="rename-rendered-.html-file-as-.aspx" class="level2">
+<h2 class="anchored" data-anchor-id="rename-rendered-.html-file-as-.aspx">5. Rename rendered .html file as .aspx</h2>
+<p>This first step of transforming the original .html file created by Quarto presentation into an interactive presentation involves changing the file extension. Right click on the .html file go to properties menu and on the General tab, change the .html file extension by .aspx</p>
+<p>You will see how the file change its icon after that</p>
+<p><img src="Figures/09_change_html_to_reveal.png" class="img-fluid"> After we change it, its icon also changes</p>
+<p><img src="Figures/10_change_html_to_reveal.png" class="img-fluid"></p>
+</section>
+<section id="drag-this-new-.aspx-onto-your-onedrive-onedrive-nhs-england" class="level2">
+<h2 class="anchored" data-anchor-id="drag-this-new-.aspx-onto-your-onedrive-onedrive-nhs-england">6. Drag this new .aspx onto your OneDrive ( OneDrive NHS England)</h2>
+<p>A message will display on the screen letting you know the “Publish_Quarto_in_sharepoint_test.aspx” file is being copied over NHS England One Drive</p>
+<p><img src="Figures/11_move_reveal_js_to_one_drive.png" class="img-fluid"></p>
+</section>
+<section id="now-go-back-to-the-sharepoint-space-created-earlier-interactive-reports" class="level2">
+<h2 class="anchored" data-anchor-id="now-go-back-to-the-sharepoint-space-created-earlier-interactive-reports">7. Now go back to the Sharepoint space created earlier <code>Interactive Reports</code></h2>
+<p>Click on Sharepoing icon on your browser and select the “Interactive Reports” space created earlier.</p>
+<p><img src="Figures/12_Interactive_reports_sharepoint.png" class="img-fluid"></p>
+</section>
+<section id="then-launch-the-nine-dots-matrix-icon-in-the-top-left-corner-of-your-screen" class="level2">
+<h2 class="anchored" data-anchor-id="then-launch-the-nine-dots-matrix-icon-in-the-top-left-corner-of-your-screen">8. Then launch the Nine dots matrix icon in the top left corner of your screen</h2>
+<p>Then you need to find the “One Drive” section on the dots matrix menu top left side corner of your screen</p>
+<p><img src="Figures/13_Nine_dots_matrix_topleft_corner.png" class="img-fluid"> And from there select “OneDrive” from the top icons row.</p>
+<p><img src="Figures/14_OneDrive_Open_in_new_tab.png" class="img-fluid"></p>
+<p>“Open in new tab” and it will open the screen below in a new tab</p>
+<p>Then on the left side of this new window, you must locate the “My files” icon</p>
+<p><img src="Figures/15_OneDrive_Open_myfiles.png" class="img-fluid"></p>
+<p>From this new window you have just opened, you will have to find .aspx file called “Publish_Quarto_in_sharepoint_test.aspx” you just created.</p>
+</section>
+<section id="open-my-files-menu-from-the-left" class="level2">
+<h2 class="anchored" data-anchor-id="open-my-files-menu-from-the-left">9. Open <code>My files</code> menu from the left</h2>
+<p>One trick to find easier your .aspx file is to navigate to the top drop down menus on this new “My files” tab and search for the “Modified by” header. Then click on the down arrow menu and select “Newer to older” this will make you .aspx file to be display right after all the folders.</p>
+<p><img src="Figures/16_Newer_to_older.png" class="img-fluid"></p>
+<p>Then you will be able to see the .aspx file in your Myfiles folder:</p>
+<p><img src="Figures/17_My_aspx_file.png" class="img-fluid"></p>
+</section>
+<section id="copy-the-file-from-this-location-in-my-files-to-the-specific-interactive-reports-area-created-earlier" class="level2">
+<h2 class="anchored" data-anchor-id="copy-the-file-from-this-location-in-my-files-to-the-specific-interactive-reports-area-created-earlier">10. Copy the file from this location in <code>My files</code> to the specific <code>Interactive reports</code> area created earlier</h2>
+<p>Click on the three dots menu on the right dide of the .aspx document we want to copy across to the Interactive reports area</p>
+<p><img src="Figures/18_copy_to_interactive_reports.png" class="img-fluid"></p>
+<p><img src="Figures/19_copy_to_interactive_reports_menu02.png" class="img-fluid"></p>
+<p>Select Interactive reports area from the left side menu:</p>
+<p><img src="Figures/19_copy_to_interactive_reports_menu.png" class="img-fluid"></p>
+<p>Click on the “copy here” button</p>
+<p>Now the .aspx file is being copied to the Documents section of the Interactive Reports site</p>
+<p><img src="Figures/20_copy_here.png" class="img-fluid"></p>
+<p>Finally we can see the file in the destination folder</p>
+<p><img src="Figures/21_aspx_file_in_interactive_reports.png" class="img-fluid"></p>
+</section>
+<section id="go-back-to-the-main-menu-of-the-interactive-reports-site" class="level2">
+<h2 class="anchored" data-anchor-id="go-back-to-the-main-menu-of-the-interactive-reports-site">11. Go back to the main menu of the Interactive Reports site</h2>
+<p>In the top bar menu you will see the <code>Pin to Quick access</code> button. Click on it to pin the Interactive Reports to the Quick Access left navigation menu</p>
+<p><img src="Figures/22_Pin_to_quick_access.png" class="img-fluid"></p>
+<p>Now the Interactive Reports site has been pinned to the quick access area</p>
+<p><img src="Figures/23_Pinned_to_quick_access.png" class="img-fluid"></p>
+</section>
+<section id="click-again-on-the-sharepoint-main-menu-and-select-one-drive" class="level2">
+<h2 class="anchored" data-anchor-id="click-again-on-the-sharepoint-main-menu-and-select-one-drive">12. Click again on the Sharepoint main menu and select One Drive</h2>
+<p>Then go back to the main OneDrive Menu and click on the dot matrix in the top left corner</p>
+<p><img src="Figures/24_Click_one_drive_menu.png" class="img-fluid"> Find the One Drive Icon under the Apps menu</p>
+<p><img src="Figures/25_One_drive_menu.png" class="img-fluid"></p>
+<p>After clicking on the OneDrive icon, find My Files icon</p>
+<p><img src="Figures/26_My_files_icon.png" class="img-fluid"></p>
+<p>In this “My files” folder, locate your .aspx file, the one we created earlier called file and select it.</p>
+<p><img src="Figures/27_Select_File_from_my_files.png" class="img-fluid"></p>
+<p>This will make a new menu to appear at the top of the bar with new options Select copy to from the drop down menu you will se displayed by clicking on the three dots.</p>
+<p><img src="Figures/28_copy_to_new_area.png" class="img-fluid"> Then This new window opens:</p>
+<p><img src="Figures/29_copy_to_Interactive_reports_area.png" class="img-fluid"></p>
+<p>Select the Interactive reports area and click on “Copy here” button.</p>
+<p>Then if we navigate to the Interactive Reports site we will see the .aspx document there.</p>
+<p><img src="Figures/30_apsx_presentation_in_interactive_reports.png" class="img-fluid"></p>
+</section>
+<section id="final-step.-copy-the-entire-folder-with-the-suffix-_files-created-when-rendering-your-quarto-document-into-quarto-presentations-documents-folder." class="level2">
+<h2 class="anchored" data-anchor-id="final-step.-copy-the-entire-folder-with-the-suffix-_files-created-when-rendering-your-quarto-document-into-quarto-presentations-documents-folder.">13. Final Step. Copy the entire Folder with the suffix <code>_files</code> created when rendering your quarto document into Quarto presentations Documents folder.</h2>
+<p>In this particular example, as this is a reveal js presentation, is adviced to copy both the reveal and markdown rendered folders</p>
+<p>From your project folder where you created and rendered your initial document, find the folder containing rendering files from the Quarto document. It has the same name as your original .qmd file with a “_files” preffix.</p>
+<p><img src="Figures/31_Copy_output_rendered_files_across.png" class="img-fluid"></p>
+<p>13_03_Drag_rendered_files_to_documents_section.png</p>
+<p><img src="Figures/32_Drag_rendered_files_to_documents_section.png" class="img-fluid"> <img src="Figures/33_Dragged_rendered_files.png" class="img-fluid"></p>
+</section>
+<section id="open-your-interactive-presentation-from-your-quarto-presentations-area" class="level2">
+<h2 class="anchored" data-anchor-id="open-your-interactive-presentation-from-your-quarto-presentations-area">14. Open your <strong>Interactive</strong> presentation from your Quarto presentations area</h2>
+<p>Once we have the Quarto document in your Area you can open it on your browser</p>
+<p><img src="Figures/33_Dragged_rendered_files.png" class="img-fluid"></p>
+<p>Select “Preview” from the menu</p>
+<p>It displays the presentation from your browser inside Sharpoint</p>
+<p>This also applies to Quarto presentations using <strong>revealjs</strong> this enables a whole range of interactive and navigation features for your presentation.</p>
+<p><img src="Figures/34_Download_presentation.png" class="img-fluid"> <img src="Figures/35_Presentaiton_fully_interactive.png" class="img-fluid"></p>
+<p><img src="Figures/36_presentation_is_displayed_now.jpg" class="img-fluid"></p>
+</section>
+<section id="share-presentation-with-other-colleagues" class="level2">
+<h2 class="anchored" data-anchor-id="share-presentation-with-other-colleagues">15. Share presentation with other colleagues</h2>
+<p>We can share the recently published interactive presentation with colleagues. Click on the top right corner members icon:</p>
+<p><img src="Figures/37_Share_presentation_01.png" class="img-fluid"></p>
+<p>From this menu you would be able to add new team member to access this file. They will be able to display interactively from their browser</p>
+<p><img src="Quarto_docs_figures_presentation/15_02_share_presentation_with_colleagues.png" class="img-fluid"></p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
