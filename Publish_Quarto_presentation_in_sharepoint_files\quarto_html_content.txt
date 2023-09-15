@@ -1,1 +1,0 @@
-This is a folder containing the rendered HTML file from the Quarto HTML file called: "Publish_Quarto_presentation_in_sharepoint.qdm"
